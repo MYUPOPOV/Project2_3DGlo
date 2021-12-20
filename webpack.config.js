@@ -7,8 +7,15 @@ module.exports = {
 		main: "./index.js",
 	},
 	output: {
-		filename: "[name].js",
+		filename: "js/[name].js",
 		path: path.resolve(__dirname, "dist"),
 	},
 	devtool: "eval-source-map",
+	devServer: {
+		hot: true,
+		static: {
+			directory: "./dist",
+			watch: true,
+		},
+	},
 };
