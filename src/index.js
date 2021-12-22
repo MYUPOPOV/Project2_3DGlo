@@ -1,5 +1,5 @@
 import timer from "./modules/timer";
 import twoJS from "./modules/two";
 
-timer("23 december 2021 07:00");
+timer("24 december 2021 00:00");
 twoJS();
