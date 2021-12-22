@@ -1,5 +1,5 @@
-import oneJS from "./modules/one";
+import timer from "./modules/timer";
 import twoJS from "./modules/two";
 
-oneJS();
+timer("25 december 2021");
 twoJS();
