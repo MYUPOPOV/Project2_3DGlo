@@ -42,7 +42,7 @@ const timer = (deadline) => {
 
 	updateClock();
 
-	console.log("timer is loaded");
+	console.log("timer.js is loaded");
 };
 
 export default timer;
