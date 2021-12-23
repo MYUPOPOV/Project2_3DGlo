@@ -6,9 +6,6 @@ const menu = () => {
 	let positionX = -100;
 	let idAnimation;
 
-	console.log("~ window.screen", window.screen);
-	console.log("~ window.screen.width", window.screen.width);
-
 	const handleMenu = () => {
 		if (window.screen.width >= 768) {
 			cancelAnimationFrame(idAnimation);
