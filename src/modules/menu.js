@@ -3,18 +3,42 @@ const menu = () => {
 	const menu = document.querySelector("menu");
 	const closeBtn = menu.querySelector(".close-btn");
 	const menuItems = menu.querySelectorAll("ul>li>a");
+	let positionX = -100;
+	let idAnimation;
+
+	console.log("~ window.screen", window.screen);
+	console.log("~ window.screen.width", window.screen.width);
 
 	const handleMenu = () => {
-		if (!menu.style.transform) {
-			menu.style.transform = "translateX(0)";
+		if (window.screen.width >= 768) {
+			cancelAnimationFrame(idAnimation);
+			if (!menu.style.transform) {
+				menuAnimationOn();
+			} else {
+				menuAnimationOff();
+			}
 		} else {
-			menu.style.transform = "";
+			if (!menu.style.transform) {
+				menu.style.transform = `translateX(0)`;
+			} else {
+				menu.style.transform = ``;
+			}
 		}
+	};
+	const menuAnimationOn = () => {
+		idAnimation = requestAnimationFrame(menuAnimationOn);
+		if (positionX < 100) {
+			positionX += 8;
+			menu.style.transform = `translateX(${positionX}%)`;
+		}
+	};
+	const menuAnimationOff = () => {
+		positionX = -100;
+		menu.style.transform = "";
 	};
 
 	menuBtn.addEventListener("click", handleMenu);
 	closeBtn.addEventListener("click", handleMenu);
-
 	menuItems.forEach((item) => item.addEventListener("click", handleMenu));
 
 	console.log("menu.js is loaded");
