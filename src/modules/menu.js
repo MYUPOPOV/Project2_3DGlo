@@ -14,11 +14,11 @@ const menu = () => {
 			} else {
 				menuAnimationOff();
 			}
-		} else {
+		} else if (window.screen.width < 768) {
 			if (!menu.style.transform) {
-				menu.style.transform = `translateX(0)`;
+				menu.style.transform = "translateX(100%)";
 			} else {
-				menu.style.transform = ``;
+				menu.style.transform = "";
 			}
 		}
 	};
@@ -34,7 +34,10 @@ const menu = () => {
 		menu.style.transform = "";
 	};
 
-	menuBtn.addEventListener("click", handleMenu);
+	menuBtn.addEventListener("click", (event) => {
+		event.preventDefault();
+		handleMenu();
+	});
 	closeBtn.addEventListener("click", (event) => {
 		event.preventDefault();
 		handleMenu();
