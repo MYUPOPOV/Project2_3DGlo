@@ -35,7 +35,10 @@ const menu = () => {
 	};
 
 	menuBtn.addEventListener("click", handleMenu);
-	closeBtn.addEventListener("click", handleMenu);
+	closeBtn.addEventListener("click", (event) => {
+		event.preventDefault();
+		handleMenu();
+	});
 	menuItems.forEach((item) => item.addEventListener("click", handleMenu));
 
 	console.log("menu.js is loaded");

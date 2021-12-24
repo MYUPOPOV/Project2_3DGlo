@@ -8,7 +8,7 @@ const smoothScroll = () => {
 		idAnimation = requestAnimationFrame(scrollUp);
 		window.scrollBy(0, 10);
 
-		distanceToTop = serviceBlock.getBoundingClientRect().top;
+		distanceToTop = this.getBoundingClientRect().top;
 		if (distanceToTop <= 0) {
 			cancelAnimationFrame(idAnimation);
 		}
