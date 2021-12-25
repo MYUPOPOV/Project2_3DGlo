@@ -2,30 +2,9 @@ const smoothScroll = () => {
 	const scrollBtn = document.querySelector('[href = "#service-block"]');
 	const serviceBlock = document.getElementById("service-block");
 	const menuItems = document.querySelectorAll("menu>ul>li>a");
-	let idAnimation;
-	let distanceToTop;
 
 	const scrollUp = function (object) {
-		const objectBlockScrollUp = scrollUp.bind(object);
-		idAnimation = requestAnimationFrame(() => {
-			objectBlockScrollUp(object);
-		});
-		distanceToTop = this.getBoundingClientRect().top;
-		if (distanceToTop > 200) {
-			window.scrollBy(0, 50);
-		} else if (distanceToTop > 100) {
-			window.scrollBy(0, 20);
-		} else if (distanceToTop > 50) {
-			window.scrollBy(0, 5);
-		} else if (distanceToTop > 30) {
-			window.scrollBy(0, 3);
-		} else if (distanceToTop > 20) {
-			window.scrollBy(0, 2);
-		} else if (distanceToTop > 0) {
-			window.scrollBy(0, 1);
-		} else if (distanceToTop <= 0) {
-			cancelAnimationFrame(idAnimation);
-		}
+		object.scrollIntoView({ block: "start", behavior: "smooth" });
 	};
 
 	scrollBtn.addEventListener("click", (event) => {

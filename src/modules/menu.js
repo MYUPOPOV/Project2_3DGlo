@@ -25,7 +25,7 @@ const menu = () => {
 	const menuAnimationOn = () => {
 		idAnimation = requestAnimationFrame(menuAnimationOn);
 		if (positionX < 100) {
-			positionX += 8;
+			positionX += 10;
 			menu.style.transform = `translateX(${positionX}%)`;
 		}
 	};
