@@ -1,7 +1,6 @@
 const modal = () => {
 	const popupBtns = document.querySelectorAll('.popup-btn');
 	const modal = document.querySelector('.popup');
-	const modalClose = document.querySelector('.popup-close');
 	let positionX = -100;
 	let idAnimation;
 	modal.style.display = 'block';
@@ -26,8 +25,6 @@ const modal = () => {
 			positionX = -200;
 		}
 	});
-
-	console.log('modal.js is loaded');
 };
 
 export default modal;

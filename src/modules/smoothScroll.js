@@ -19,8 +19,6 @@ const smoothScroll = () => {
 			scrollUp.bind(itemLink)(itemLink);
 		});
 	});
-
-	console.log('smoothScroll.js is loaded');
 };
 
 export default smoothScroll;

@@ -1,8 +1,5 @@
 const menu = () => {
-	const menuBtn = document.querySelector('.menu');
 	const menu = document.querySelector('menu');
-	const closeBtn = menu.querySelector('.close-btn');
-	const menuItems = menu.querySelectorAll('ul>li>a');
 	let positionX = -100;
 	let idAnimation;
 
@@ -41,8 +38,6 @@ const menu = () => {
 			handleMenu();
 		}
 	});
-
-	console.log('menu.js is loaded');
 };
 
 export default menu;

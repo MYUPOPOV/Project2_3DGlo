@@ -56,8 +56,6 @@ const textValidation = () => {
 	[form1Name, form2Name, form3Name, form2Message].forEach((item) => textFormFormat.bind(item)());
 	[form1Email, form2Email, form3Email].forEach((item) => emailFormFormat.bind(item)());
 	[form1Phone, form2Phone, form3Phone].forEach((item) => telFormFormat.bind(item)());
-
-	console.log('textValidation.js is loaded');
 };
 
 export default textValidation;

@@ -1,8 +1,8 @@
 const timer = (deadline) => {
-	const timerHours = document.getElementById("timer-hours");
-	const timerMinutes = document.getElementById("timer-minutes");
-	const timerSeconds = document.getElementById("timer-seconds");
-	const timerAction = document.querySelector(".timer-action");
+	const timerHours = document.getElementById('timer-hours');
+	const timerMinutes = document.getElementById('timer-minutes');
+	const timerSeconds = document.getElementById('timer-seconds');
+	const timerAction = document.querySelector('.timer-action');
 
 	const getTimeRemaining = () => {
 		let dateStop = new Date(deadline).getTime();
@@ -17,7 +17,7 @@ const timer = (deadline) => {
 
 	const checkTimeFormat = (item) => {
 		if (item.toString().length < 2) {
-			item = "0" + item;
+			item = '0' + item;
 		}
 		return item;
 	};
@@ -34,15 +34,13 @@ const timer = (deadline) => {
 			setTimeout(updateClock, 1000);
 		} else {
 			timerAction.textContent = `До конца акции осталось 0 дн.`;
-			timerHours.textContent = "00";
-			timerMinutes.textContent = "00";
-			timerSeconds.textContent = "00";
+			timerHours.textContent = '00';
+			timerMinutes.textContent = '00';
+			timerSeconds.textContent = '00';
 		}
 	};
 
 	updateClock();
-
-	console.log("timer.js is loaded");
 };
 
 export default timer;

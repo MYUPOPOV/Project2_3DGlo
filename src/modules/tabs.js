@@ -17,8 +17,6 @@ const tabs = () => {
 			});
 		}
 	});
-
-	console.log('tabs.js is loaded');
 };
 
 export default tabs;
