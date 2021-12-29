@@ -3,12 +3,10 @@ const textValidation = () => {
 	const form1Name = document.getElementById('form1-name');
 	const form1Email = document.getElementById('form1-email');
 	const form1Phone = document.getElementById('form1-phone');
-
 	/* Модальное окно */
 	const form3Name = document.getElementById('form3-name');
 	const form3Phone = document.getElementById('form3-phone');
 	const form3Email = document.getElementById('form3-email');
-
 	/* Остались вопросы? */
 	const form2Name = document.getElementById('form2-name');
 	const form2Email = document.getElementById('form2-email');
