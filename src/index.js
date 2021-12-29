@@ -15,4 +15,4 @@ smoothScroll();
 calculator();
 textValidation();
 tabs();
-slider();
+slider('portfolio-content', 'portfolio-item', 'portfolio-item-active', 'dot-active');
