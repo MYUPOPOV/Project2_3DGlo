@@ -8,11 +8,9 @@ const slider = (portfolioContent, portfolioItem, classPortfolioActive, classDotA
 
 	const checkArguments = () => {
 		if (!document.querySelector(`.${portfolioContent}`) || !document.querySelector(`.${portfolioItem}`) || !document.querySelector(`.${classPortfolioActive}`) || classDotActive !== 'dot-active') {
-			console.log('ОШИБКА: Модуль slider() не запущен => проверьте аргументы функции slider() в index.js');
 			alert('ОШИБКА: Модуль slider() не запущен => проверьте аргументы функции slider() в index.js');
 			return;
 		} else {
-			console.log('Модуль slider() запущен');
 			renderDots();
 			startSlide(sliderTimeInterval);
 			addListeners();

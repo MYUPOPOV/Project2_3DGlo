@@ -43,6 +43,7 @@ const calculator = (price = 100) => {
 		if (calcTypeValue && calcSquareValue) {
 			totalValue = price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue;
 		}
+
 		totalAnimation(0, totalValue);
 	};
 

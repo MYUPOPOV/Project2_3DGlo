@@ -14,7 +14,7 @@ module.exports = {
 	devServer: {
 		hot: true,
 		static: {
-			directory: './',
+			directory: './dist',
 			watch: true,
 		},
 	},
