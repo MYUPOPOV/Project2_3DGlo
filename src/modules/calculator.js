@@ -16,7 +16,7 @@ const calculator = (price = 100) => {
 	const totalAnimation = (totalStart, totalEnd) => {
 		if (totalEnd > totalStart) {
 			setTimeout(() => {
-				totalStart += 10;
+				totalStart += Math.ceil((totalEnd - totalStart) * 0.05);
 				total.textContent = totalStart;
 				totalAnimation(totalStart, totalEnd);
 			}, 1);
