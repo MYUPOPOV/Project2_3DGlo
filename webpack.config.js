@@ -7,7 +7,7 @@ module.exports = {
 		main: './index.js',
 	},
 	output: {
-		filename: './dist/js/[name].js',
+		filename: './js/[name].js',
 		path: path.join(__dirname, 'dist'),
 	},
 	devtool: 'eval-source-map',

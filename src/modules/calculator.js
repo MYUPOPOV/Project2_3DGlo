@@ -1,3 +1,5 @@
+import { animate } from './helpers';
+
 const calculator = (price = 100) => {
 	const calcBlock = document.querySelector('.calc-block');
 	const calcType = document.querySelector('.calc-type');
@@ -12,18 +14,6 @@ const calculator = (price = 100) => {
 			e.target.value = e.target.value.replace(/\D+/, '');
 		});
 	});
-
-	const totalAnimation = (totalStart, totalEnd) => {
-		if (totalEnd > totalStart) {
-			setTimeout(() => {
-				totalStart += Math.ceil((totalEnd - totalStart) * 0.05);
-				total.textContent = totalStart;
-				totalAnimation(totalStart, totalEnd);
-			}, 1);
-		} else if (totalEnd < totalStart) {
-			total.textContent = totalEnd;
-		}
-	};
 
 	const countCalc = () => {
 		const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
@@ -44,7 +34,15 @@ const calculator = (price = 100) => {
 			totalValue = price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue;
 		}
 
-		totalAnimation(0, totalValue);
+		animate({
+			duration: 500,
+			timing(timeFraction) {
+				return Math.pow(timeFraction, 2);
+			},
+			draw(progress) {
+				total.textContent = `${Math.ceil(progress * totalValue)}`;
+			},
+		});
 	};
 
 	calcBlock.addEventListener('input', (e) => {
