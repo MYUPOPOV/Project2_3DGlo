@@ -7,6 +7,7 @@ import calculator from './modules/calculator';
 import textValidation from './modules/textValidation';
 import tabs from './modules/tabs';
 import slider from './modules/slider';
+import sendForm from './modules/sendForm';
 
 timer('1 january 2022 00:00');
 menu();
@@ -16,3 +17,4 @@ textValidation();
 tabs();
 slider('portfolio-content', 'portfolio-item', 'portfolio-item-active', 'dot-active');
 calculator(100);
+sendForm('form1');
