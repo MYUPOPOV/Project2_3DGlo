@@ -9,11 +9,11 @@ import tabs from './modules/tabs';
 import slider from './modules/slider';
 import sendForm from './modules/sendForm';
 
-timer('2 february 2022 00:00');
+timer('3 february 2022 00:00');
 menu();
 modal();
 smoothScroll();
-textValidation();
+// textValidation();
 tabs();
 slider('portfolio-content', 'portfolio-item', 'portfolio-item-active', 'dot-active');
 calculator(100);

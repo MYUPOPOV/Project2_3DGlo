@@ -6,19 +6,27 @@ const sendForm = ({ formId, someElem = [] }) => {
 	const successText = 'Спасибо! Наш менеджер с вами свяжется';
 
 	const validate = (list) => {
-		console.log('~ list', list);
-
 		let success = true;
 
 		list.forEach((input) => {
-			console.log('~ input', input.name, ' and ', input.value);
+			if (
+				(input.name === 'user_phone' && /^[\d+()-]+$/.test(input.value)) ||
+				(input.name === 'user_name' && /^[а-яА-Я ]+$/.test(input.value)) ||
+				(input.name === 'user_message' && /^[а-яА-Я \d.,;:!?]+$/.test(input.value)) ||
+				(input.name === 'user_email' && /^[a-zA-Z0-9@-_.!]+$/.test(input.value))
+			) {
+				input.classList.add('success');
+				input.classList.remove('error');
+			} else {
+				input.classList.add('error');
+				input.classList.remove('success');
+			}
+		});
 
-			// test
-			// e.target.value = e.target.value.replace(/[^а-яА-Я- ]/, '');
-
-			// if (input.classList.contains('success')) {
-			// 	success = false;
-			// }
+		list.forEach((input) => {
+			if (input.classList.contains('error')) {
+				success = false;
+			}
 		});
 
 		return success;
@@ -38,7 +46,6 @@ const sendForm = ({ formId, someElem = [] }) => {
 		const formElements = form.querySelectorAll('input');
 		const formData = new FormData(form);
 		const formBody = {};
-
 		statusBlock.textContent = loadText;
 		form.append(statusBlock);
 
@@ -48,7 +55,6 @@ const sendForm = ({ formId, someElem = [] }) => {
 
 		someElem.forEach((elem) => {
 			const element = document.getElementById(elem.id);
-
 			if (elem.type === 'block') {
 				formBody[elem.id] = element.textContent;
 			} else if (elem.type === 'input') {
@@ -56,13 +62,10 @@ const sendForm = ({ formId, someElem = [] }) => {
 			}
 		});
 
-		console.log('submit');
-
 		if (validate(formElements)) {
 			sendData(formBody)
 				.then((data) => {
 					statusBlock.textContent = successText;
-
 					formElements.forEach((input) => {
 						input.value = '';
 					});
@@ -79,7 +82,6 @@ const sendForm = ({ formId, someElem = [] }) => {
 		if (!form) {
 			throw new Error('Верните форму на место');
 		}
-
 		form.addEventListener('submit', (e) => {
 			e.preventDefault();
 			submitForm();
