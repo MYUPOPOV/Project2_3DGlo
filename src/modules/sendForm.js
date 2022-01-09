@@ -1,9 +1,11 @@
+import { appendStatusAnimation } from './helpers';
+
 const sendForm = ({ formId, someElem = [] }) => {
 	const form = document.getElementById(formId);
-	const statusBlock = document.createElement('div');
-	const loadText = 'Загрузка...';
-	const errorText = 'Ошибка...';
-	const successText = 'Спасибо! Наш менеджер с вами свяжется';
+	let statusBlock = document.createElement('div');
+	// const loadText = 'Загрузка...';
+	// const errorText = 'Ошибка...';
+	// const successText = 'Спасибо! Наш менеджер с вами свяжется';
 
 	const validate = (list) => {
 		let success = true;
@@ -46,9 +48,8 @@ const sendForm = ({ formId, someElem = [] }) => {
 		const formElements = form.querySelectorAll('input');
 		const formData = new FormData(form);
 		const formBody = {};
-		statusBlock.textContent = loadText;
+		appendStatusAnimation(statusBlock, 'preload');
 		form.append(statusBlock);
-
 		formData.forEach((val, key) => {
 			formBody[key] = val;
 		});
@@ -65,13 +66,13 @@ const sendForm = ({ formId, someElem = [] }) => {
 		if (validate(formElements)) {
 			sendData(formBody)
 				.then((data) => {
-					statusBlock.textContent = successText;
+					appendStatusAnimation(statusBlock, 'done');
 					formElements.forEach((input) => {
 						input.value = '';
 					});
 				})
 				.catch((error) => {
-					statusBlock.textContent = errorText;
+					appendStatusAnimation(statusBlock, 'error');
 				});
 		} else {
 			alert('Данные не валидны!');
