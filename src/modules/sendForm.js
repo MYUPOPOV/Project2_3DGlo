@@ -66,12 +66,18 @@ const sendForm = ({ formId, someElem = [] }) => {
 			sendData(formBody)
 				.then((data) => {
 					appendStatusAnimation(statusBlock, 'done');
+					setTimeout(() => {
+						statusBlock.innerHTML = '';
+					}, 2000);
 					formElements.forEach((input) => {
 						input.value = '';
 					});
 				})
 				.catch((error) => {
 					appendStatusAnimation(statusBlock, 'error');
+					setTimeout(() => {
+						statusBlock.innerHTML = '';
+					}, 2000);
 				});
 		} else {
 			alert('Данные не валидны!');
