@@ -1,4 +1,5 @@
-'use strict';
+/*jshint esversion: 6 */
+
 import timer from './modules/timer';
 import menu from './modules/menu';
 import modal from './modules/modal';
