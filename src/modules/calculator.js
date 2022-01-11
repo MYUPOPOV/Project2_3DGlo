@@ -1,4 +1,5 @@
 import { animate } from './helpers';
+/*jshint esversion: 6 */
 
 const calculator = (price = 100) => {
 	const calcBlock = document.querySelector('.calc-block');

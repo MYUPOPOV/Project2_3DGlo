@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 const slider = (portfolioContent, portfolioItem, classPortfolioActive, classDotActive) => {
 	const sliderBlock = document.querySelector(`.${portfolioContent}`);
 	const slides = document.querySelectorAll(`.${portfolioItem}`);

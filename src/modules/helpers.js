@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 const animate = function ({ timing, draw, duration }) {
 	let start = performance.now();
 

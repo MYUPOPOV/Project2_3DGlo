@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 import { animate } from './helpers';
 
 const modal = () => {

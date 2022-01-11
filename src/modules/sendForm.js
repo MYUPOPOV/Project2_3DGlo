@@ -1,21 +1,20 @@
+/*jshint esversion: 6 */
+
 import { appendStatusAnimation } from './helpers';
 
 const sendForm = ({ formId, someElem = [] }) => {
 	const form = document.getElementById(formId);
 	let statusBlock = document.createElement('div');
-	// const loadText = 'Загрузка...';
-	// const errorText = 'Ошибка...';
-	// const successText = 'Спасибо! Наш менеджер с вами свяжется';
 
 	const validate = (list) => {
 		let success = true;
 
 		list.forEach((input) => {
 			if (
-				(input.name === 'user_phone' && /^[\d+()-]+$/.test(input.value)) ||
-				(input.name === 'user_name' && /^[а-яА-Я ]+$/.test(input.value)) ||
-				(input.name === 'user_message' && /^[а-яА-Я \d.,;:!?]+$/.test(input.value)) ||
-				(input.name === 'user_email' && /^[a-zA-Z0-9@-_.!]+$/.test(input.value))
+				(input.name === 'user_phone' && /^[\d+()+-]+$/.test(input.value) && input.value.length > 10) ||
+				(input.name === 'user_name' && /^[а-яА-Я ]+$/.test(input.value) && input.value.length > 1) ||
+				(input.name === 'user_message' && /^[а-яА-Я0-9\-.,;:!? ]+$/.test(input.value)) ||
+				(input.name === 'user_email' && /^[a-zA-Z0-9@-_.!]+$/.test(input.value) && input.value.length > 0)
 			) {
 				input.classList.add('success');
 				input.classList.remove('error');
@@ -76,6 +75,7 @@ const sendForm = ({ formId, someElem = [] }) => {
 				});
 		} else {
 			alert('Данные не валидны!');
+			appendStatusAnimation(statusBlock, 'error');
 		}
 	};
 

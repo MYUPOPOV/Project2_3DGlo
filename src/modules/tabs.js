@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 const tabs = () => {
 	const tabContent = document.querySelectorAll('.service-tab');
 	const tabPanel = document.querySelector('.service-header');

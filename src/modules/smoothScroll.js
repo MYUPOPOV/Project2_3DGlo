@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 const smoothScroll = () => {
 	const scrollBtn = document.querySelector('[href = "#service-block"]');
 	const serviceBlock = document.getElementById('service-block');

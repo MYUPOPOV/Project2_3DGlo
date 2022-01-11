@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 const menu = () => {
 	const menu = document.querySelector('menu');
 	let positionX = -100;
