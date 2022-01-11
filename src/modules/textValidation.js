@@ -45,7 +45,7 @@ const textValidation = () => {
 	/* Функция форматирования Полей ввода type=email  */
 	const emailFormFormat = function () {
 		this.addEventListener('input', (e) => {
-			e.target.value = e.target.value.replace(/[^a-zA-Z0-9@\-_.!~\*']/, '');
+			e.target.value = e.target.value.replace(/[^a-zA-Z0-9\-@_.!~\*']/, '');
 		});
 		this.addEventListener('blur', (e) => {
 			e.target.value = e.target.value.replace(/[^a-zA-Z0-9@\-_.!~\*']+/, '');
@@ -70,7 +70,7 @@ const textValidation = () => {
 
 	[form1Name, form2Name, form3Name].forEach((item) => textFormFormat.bind(item)());
 	messageFormFormat.bind(form2Message)();
-	[(form1Email, form2Email, form3Email)].forEach((item) => emailFormFormat.bind(item)());
+	[form1Email, form2Email, form3Email].forEach((item) => emailFormFormat.bind(item)());
 	[form1Phone, form2Phone, form3Phone].forEach((item) => telFormFormat.bind(item)());
 };
 
