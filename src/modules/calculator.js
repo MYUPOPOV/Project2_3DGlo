@@ -43,7 +43,6 @@ const calculator = (price = 100) => {
 			});
 		} else {
 			total.textContent = 0;
-			globalValue = 0;
 		}
 	};
 
