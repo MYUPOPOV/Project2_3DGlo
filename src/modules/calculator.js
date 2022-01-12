@@ -10,12 +10,6 @@ const calculator = (price = 100) => {
 	const calcDay = document.querySelector('.calc-day');
 	const total = document.getElementById('total');
 
-	[calcSquare, calcCount, calcDay].forEach((item) => {
-		item.addEventListener('input', (e) => {
-			e.target.value = e.target.value.replace(/\D+/, '');
-		});
-	});
-
 	const countCalc = () => {
 		const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
 		const calcSquareValue = calcSquare.value;
@@ -35,16 +29,29 @@ const calculator = (price = 100) => {
 			totalValue = price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue;
 		}
 
-		animate({
-			duration: 500,
-			timing(timeFraction) {
-				return Math.pow(timeFraction, 2);
-			},
-			draw(progress) {
-				total.textContent = `${Math.ceil(progress * totalValue)}`;
-			},
-		});
+		if (calcSquareValue !== '' && calcCount.value !== '' && calcDay.value !== '') {
+			const textContentValue = +total.textContent;
+			const delayValue = totalValue - textContentValue;
+			animate({
+				duration: 1000,
+				timing(timeFraction) {
+					return timeFraction;
+				},
+				draw(progress) {
+					total.textContent = `${textContentValue + Math.ceil(progress * delayValue)}`;
+				},
+			});
+		} else {
+			total.textContent = 0;
+			globalValue = 0;
+		}
 	};
+
+	[calcSquare, calcCount, calcDay].forEach((item) => {
+		item.addEventListener('input', (e) => {
+			e.target.value = e.target.value.replace(/\D+/, '');
+		});
+	});
 
 	calcBlock.addEventListener('input', (e) => {
 		if (e.target === calcType || e.target === calcSquare || e.target === calcCount || e.target === calcDay) {
