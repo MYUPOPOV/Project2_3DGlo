@@ -10,8 +10,7 @@ const calculator = (price = 100) => {
 	const calcDay = document.querySelector('.calc-day');
 	const total = document.getElementById('total');
 
-	const array = [calcSquare, calcCount, calcDay];
-	array.forEach((item) => {
+	[calcSquare, calcCount, calcDay].forEach((item) => {
 		item.addEventListener('input', (e) => {
 			e.target.value = e.target.value.replace(/\D+/, '');
 		});

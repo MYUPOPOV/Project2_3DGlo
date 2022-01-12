@@ -2,6 +2,8 @@
 
 import { appendStatusAnimation } from './helpers';
 
+const modal = document.querySelector('.popup');
+
 const sendForm = ({ formId, someElem = [] }) => {
 	const form = document.getElementById(formId);
 	let statusBlock = document.createElement('div');
@@ -68,6 +70,7 @@ const sendForm = ({ formId, someElem = [] }) => {
 					appendStatusAnimation(statusBlock, 'done');
 					setTimeout(() => {
 						statusBlock.innerHTML = '';
+						modal.style.display = 'none';
 					}, 2000);
 					formElements.forEach((input) => {
 						input.value = '';
@@ -77,6 +80,7 @@ const sendForm = ({ formId, someElem = [] }) => {
 					appendStatusAnimation(statusBlock, 'error');
 					setTimeout(() => {
 						statusBlock.innerHTML = '';
+						modal.style.display = 'none';
 					}, 2000);
 				});
 		} else {

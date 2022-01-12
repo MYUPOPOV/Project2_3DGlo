@@ -33,7 +33,7 @@ const timer = (deadline) => {
 		timerSeconds.textContent = checkTimeFormat(getTime.seconds);
 
 		if (getTime.timeRemaining > 0) {
-			setTimeout(updateClock, 1000);
+			setInterval(updateClock, 1000);
 		} else {
 			timerAction.textContent = `До конца акции осталось 0 дн.`;
 			timerHours.textContent = '00';
