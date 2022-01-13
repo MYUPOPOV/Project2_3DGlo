@@ -24,25 +24,23 @@ const timer = (deadline) => {
 		return item;
 	};
 
-	const updateClock = (getTime) => {
-		timerAction.textContent = `До конца акции осталось ${getTime.days} дн.`;
-
-		timerHours.textContent = checkTimeFormat(getTime.hours);
-		timerMinutes.textContent = checkTimeFormat(getTime.minutes);
-		timerSeconds.textContent = checkTimeFormat(getTime.seconds);
+	const updateClock = () => {
+		const getTime = getTimeRemaining();
+		if (getTime.timeRemaining > 0) {
+			timerAction.textContent = `До конца акции осталось ${getTime.days} дн.`;
+			timerHours.textContent = checkTimeFormat(getTime.hours);
+			timerMinutes.textContent = checkTimeFormat(getTime.minutes);
+			timerSeconds.textContent = checkTimeFormat(getTime.seconds);
+		} else {
+			timerAction.textContent = `До конца акции осталось 0 дн.`;
+			timerHours.textContent = '00';
+			timerMinutes.textContent = '00';
+			timerSeconds.textContent = '00';
+			clearInterval(intervalID);
+		}
 	};
 
-	const getTime = getTimeRemaining();
-	if (getTime.timeRemaining > 0) {
-		setInterval(() => {
-			updateClock(getTime);
-		}, 1000);
-	} else {
-		timerAction.textContent = `До конца акции осталось 0 дн.`;
-		timerHours.textContent = '00';
-		timerMinutes.textContent = '00';
-		timerSeconds.textContent = '00';
-	}
+	const intervalID = setInterval(updateClock, 1000);
 };
 
 export default timer;
