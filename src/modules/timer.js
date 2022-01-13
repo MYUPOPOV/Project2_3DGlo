@@ -40,6 +40,11 @@ const timer = (deadline) => {
 		}
 	};
 
+	const getTime = getTimeRemaining();
+	timerAction.textContent = `До конца акции осталось ${getTime.days} дн.`;
+	timerHours.textContent = checkTimeFormat(getTime.hours);
+	timerMinutes.textContent = checkTimeFormat(getTime.minutes);
+	timerSeconds.textContent = checkTimeFormat(getTime.seconds);
 	const intervalID = setInterval(updateClock, 1000);
 };
 
