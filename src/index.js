@@ -10,11 +10,11 @@ import tabs from './modules/tabs';
 import slider from './modules/slider';
 import sendForm from './modules/sendForm';
 
-timer('15 january 2022 00:00');
+timer('1 january 2023 00:00');
 menu();
 modal();
 smoothScroll();
-textValidation();
+
 tabs();
 slider('portfolio-content', 'portfolio-item', 'portfolio-item-active', 'dot-active');
 calculator(100);

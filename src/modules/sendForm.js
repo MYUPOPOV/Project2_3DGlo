@@ -2,9 +2,9 @@
 
 import { appendStatusAnimation } from './helpers';
 
-const modal = document.querySelector('.popup');
-
 const sendForm = ({ formId, someElem = [] }) => {
+	const modal = document.querySelector('.popup');
+
 	const form = document.getElementById(formId);
 	let statusBlock = document.createElement('div');
 
@@ -40,7 +40,7 @@ const sendForm = ({ formId, someElem = [] }) => {
 			method: 'POST',
 			body: JSON.stringify(data),
 			headers: {
-				'Content-Type': 'application/json',
+				'Content-Type': 'application/json', // нужно form/multipart ?
 			},
 		}).then((res) => res.json());
 	};
@@ -54,6 +54,10 @@ const sendForm = ({ formId, someElem = [] }) => {
 		formData.forEach((val, key) => {
 			formBody[key] = val;
 		});
+
+		// console.log('~ form', form);
+		// console.log('~  formData', formData);
+		// console.log('~  formData', formBody);
 
 		someElem.forEach((elem) => {
 			const element = document.getElementById(elem.id);
